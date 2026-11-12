@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d0a1f">
+<meta name="color-scheme" content="dark">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='96' fill='%2336186f'/%3E%3Cg transform='translate(56 40) scale(3.4)'%3E%3Cline x1='48' y1='22' x2='40' y2='6' stroke='%23c4b5fd' stroke-width='3'/%3E%3Ccircle cx='39' cy='5' r='6' fill='%23c4b5fd'/%3E%3Cline x1='72' y1='22' x2='82' y2='8' stroke='%23c4b5fd' stroke-width='3'/%3E%3Ccircle cx='83' cy='7' r='6' fill='%23c4b5fd'/%3E%3Cellipse cx='60' cy='72' rx='38' ry='36' fill='%23e11d48'/%3E%3Cline x1='60' y1='46' x2='60' y2='108' stroke='%233b1a6e' stroke-width='3'/%3E%3Cg fill='%232b1a6e'%3E%3Ccircle cx='40' cy='68' r='6.5'/%3E%3Ccircle cx='80' cy='68' r='6.5'/%3E%3Ccircle cx='36' cy='88' r='5.5'/%3E%3Ccircle cx='84' cy='88' r='5.5'/%3E%3C/g%3E%3Cellipse cx='60' cy='40' rx='26' ry='19' fill='white'/%3E%3Ccircle cx='51' cy='38' r='3.8'/%3E%3Ccircle cx='69' cy='38' r='3.8'/%3E%3Cpath d='M54 46q6 6 12 0' stroke='black' stroke-width='2.2' fill='none'/%3E%3C/g%3E%3C/svg%3E">
+<title>غرفة دراسة صفا</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#0d0a1f;--card:#2b1456;--card2:#1f0f3f;--line:#4b2a86;--acc:#7c3aed;--pink:#f0abfc;--txt:#f3eaff;--mut:#b9a3e3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0a1f;--card:#2b1456;--card2:#1f0f3f;--line:#4b2a86;--acc:#7c3aed;--pink:#f0abfc;--txt:#f3eaff;--mut:#b9a3e3}}
+:root[data-theme="dark"]{--bg:#0d0a1f;--card:#2b1456;--card2:#1f0f3f;--line:#4b2a86;--acc:#7c3aed;--pink:#f0abfc;--txt:#f3eaff;--mut:#b9a3e3}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;overscroll-behavior-y:none}html{-webkit-text-size-adjust:100%;background:#0d0a1f;color-scheme:dark}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(120% 60% at 50% 0,#2a1259 0,#0d0a1f 60%)}
+body{background:none;color:var(--txt);font-family:Cairo,"Segoe UI",Tahoma,Arial,sans-serif;display:block}
+#app{width:100%;max-width:480px;margin:0 auto;min-height:100vh}
+main{display:block;padding:16px 16px calc(175px + env(safe-area-inset-bottom,0px))}
+section{display:none}section.on{display:block}
+h1{font-size:26px;margin:0 0 2px;font-weight:800}
+.sub{color:var(--mut);font-size:13px;margin:0 0 14px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.ibtn{width:44px;height:44px;border-radius:14px;background:var(--card);border:1px solid var(--line);color:var(--txt);font-size:20px;cursor:pointer;flex:none}
+.card{background:linear-gradient(160deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:22px;padding:14px}
+.scene{position:relative;overflow:hidden;padding:0;background:linear-gradient(180deg,#3a1b6e 0,#4a2a55 50%,#7a5230 100%,#3a1b6e 150%);}
+.scene:before{content:"";position:absolute;inset:-25%;z-index:0;pointer-events:none;background:radial-gradient(circle at 72% 22%,#fbbf2466,transparent 55%);animation:drift 8s ease-in-out infinite;will-change:transform}
+@keyframes drift{50%{transform:translate(-14%,10%) scale(1.1)}}
+.bug,.shelf{position:relative;z-index:1}
+.bubble{position:relative;z-index:1;margin:14px 14px 0;background:#5a2fa0;border:1px solid #7c4dd0;border-radius:18px;padding:12px 14px;font-size:14px;line-height:1.6;min-height:70px}
+.bubble:after{content:"";position:absolute;bottom:-8px;right:50%;width:14px;height:14px;background:#5a2fa0;transform:rotate(45deg);border-right:1px solid #7c4dd0;border-bottom:1px solid #7c4dd0}
+.win{position:absolute;top:10px;left:10px;width:70px;height:60px;border-radius:14px;background:#2a1a30;border:2px solid #5a3a70;display:flex;align-items:flex-end;justify-content:space-around;padding:6px;font-size:18px}
+.bug{display:block;margin:10px auto 0;width:130px;height:130px;cursor:pointer;animation:bob 3.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-7px) rotate(2deg)}}
+.shelf{display:block;width:100%;animation:sway 5s ease-in-out infinite}
+@keyframes sway{50%{transform:translateX(7px) skewX(-1.2deg)}}
+.st{fill:none;stroke:#f5e8ff;stroke-width:2.5;stroke-linecap:round;opacity:0;animation:rise 3s ease-in infinite}
+@keyframes rise{0%{opacity:0;transform:translateY(8px)}40%{opacity:.85}100%{opacity:0;transform:translateY(-16px)}}
+.glow{animation:gl 3s ease-in-out infinite}@keyframes gl{50%{opacity:.7}}
+@media (prefers-reduced-motion:reduce){.bug,.shelf,.scene,.st,.glow,.mini{animation:none}.st{opacity:.6}}
+h2{font-size:16px;margin:18px 0 10px;font-weight:600}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.chip{background:linear-gradient(160deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:18px;padding:14px 6px;text-align:center;color:var(--txt);font-family:inherit;cursor:pointer}
+.chip b{display:block;font-size:17px;color:var(--pink)}.chip small{color:var(--mut);font-size:11px}
+.stat{padding:12px 6px;text-align:center;border-radius:18px;background:var(--card2);border:1px solid var(--line)}
+.stat small{display:block;color:var(--mut);font-size:11px}.stat b{font-size:26px;display:block;margin:2px 0}
+.link{display:flex;align-items:center;gap:12px;margin-top:14px;width:100%;text-align:right;color:var(--txt);font-family:inherit;cursor:pointer}
+.ic{width:46px;height:46px;border-radius:14px;background:#4a2a86;display:grid;place-items:center;font-size:22px;flex:none}
+.ring{position:relative;width:240px;height:240px;margin:14px auto}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:8}.tr{stroke:#3d2a66}
+.pg{stroke:var(--acc);stroke-linecap:round;transition:stroke-dashoffset .4s linear}
+.tm{position:absolute;inset:0;display:grid;place-items:center;font-size:46px;font-weight:800;direction:ltr;font-variant-numeric:tabular-nums}
+.row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;align-items:center}
+.pill{border:1px solid var(--line);background:var(--card2);color:var(--txt);border-radius:999px;padding:8px 14px;font-family:inherit;font-size:14px;cursor:pointer}
+.pill.on{background:var(--acc);border-color:var(--acc)}
+.num{width:62px;text-align:center;padding:9px 4px!important}
+.go{display:block;width:100%;margin-top:16px;padding:14px;border:0;border-radius:18px;font:800 18px Cairo,sans-serif;color:#fff;background:linear-gradient(90deg,#7c3aed,#db2777);cursor:pointer}
+.ghost{display:block;margin:10px auto 0;background:none;border:1px solid var(--line);color:var(--txt);border-radius:16px;padding:9px 26px;font-family:inherit;cursor:pointer}
+input[type=text],input[type=number],select,textarea{background:var(--card2);border:1px solid var(--line);border-radius:14px;color:var(--txt);padding:12px;font:inherit;font-size:15px}
+input[type=text],textarea{width:100%}textarea{min-height:80px;resize:vertical}
+.item{display:flex;align-items:center;gap:10px;padding:12px;margin-bottom:10px;background:linear-gradient(160deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:16px}
+.item .tx{flex:1;overflow-wrap:anywhere}.item small{color:var(--mut)}
+.item.done .tx b{text-decoration:line-through;color:var(--mut);font-weight:400}
+.item button{background:none;border:0;color:var(--mut);font-size:18px;cursor:pointer}
+.ck{width:30px;height:30px;border-radius:10px!important;border:2px solid var(--acc)!important;color:#fff!important;font-size:16px!important;padding:0}
+.done .ck{background:var(--acc)!important}
+.tag{border:1px solid var(--line);border-radius:8px;padding:2px 8px;font-size:12px;color:var(--mut)}
+.add{background:var(--acc);color:#fff;border:0;border-radius:16px;padding:10px 16px;font:600 14px Cairo,sans-serif;cursor:pointer;box-shadow:0 6px 18px #7c3aed66;flex:none}
+.prog{display:block;padding:14px}.bar{height:10px;border-radius:9px;background:#3d2a66;margin-top:10px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#a855f7,#ec4899);border-radius:9px;transition:width .4s}
+.ftabs{display:flex;background:var(--card2);border:1px solid var(--line);border-radius:18px;padding:5px;margin:14px 0}
+.ftabs button{flex:1;background:none;border:0;color:var(--mut);font:600 14px Cairo,sans-serif;padding:10px 4px;border-radius:14px;cursor:pointer}
+.ftabs button.on{background:var(--acc);color:#fff}
+.empty{color:var(--mut);text-align:center;padding:12px;font-size:14px}
+.snd{display:flex;align-items:center;gap:12px;margin-bottom:12px;padding:16px 14px}
+.snd .tx{flex:1}.snd small{color:var(--mut);font-size:13px;line-height:1.5;display:block;margin-top:2px}
+.play{width:56px;height:56px;border-radius:16px;border:0;background:var(--acc);color:#fff;font-size:22px;cursor:pointer;flex:none}
+.snd.on{border-color:var(--pink)}
+.info{padding:14px 16px;margin-bottom:14px;border-radius:18px}
+input[type=range]{width:100%;accent-color:var(--acc)}
+#dock{position:fixed;bottom:0;left:0;right:0;margin:0 auto;width:100%;max-width:480px;z-index:20;background:#150c2e;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+#mate{display:none;align-items:center;gap:8px;padding:6px 14px 0}
+#mate .bubble{flex:1;margin:0;min-height:0;padding:8px 12px;font-size:13px}#mate .bubble:after{display:none}
+.mini{width:58px;height:58px;flex:none;animation:bob 3s ease-in-out infinite}
+nav{display:flex;justify-content:space-around;padding:8px 8px 10px}
+nav button{background:none;border:0;color:var(--mut);font:600 12px Cairo,sans-serif;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px;flex:1;line-height:1.15;text-align:center;border-radius:18px;cursor:pointer}
+nav button i{font-style:normal;font-size:20px}
+nav button.on{background:var(--acc);color:#fff;font-weight:800}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+#splash{position:fixed;inset:0;z-index:50;background:radial-gradient(circle at 50% 40%,#3b1a7a,#0d0a1f 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;transition:opacity .9s,visibility .9s;cursor:pointer;overflow:hidden}
+#splash.out{opacity:0;visibility:hidden}
+#splash svg.fb{width:150px;height:150px;animation:fly 1.5s cubic-bezier(.2,1.3,.4,1) both,bob 3s 1.5s ease-in-out infinite}
+@keyframes fly{from{transform:translate(-140px,180px) rotate(-45deg) scale(.3);opacity:0}to{transform:none;opacity:1}}
+#splash .t1{font-size:30px;font-weight:800;margin:0;animation:up 1s 1s both}
+#splash .t2{font-size:17px;margin:0;animation:up 1s 1.5s both}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.shine{background:linear-gradient(90deg,#f0abfc,#fff,#a78bfa,#f0abfc);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 3s linear infinite}
+@keyframes shine{to{background-position:-250% 0}}
+.sp{position:absolute;animation:tw 2.4s ease-in-out infinite;opacity:0}
+@keyframes tw{50%{opacity:1;transform:scale(1.3) rotate(20deg)}}
+.by{display:inline-flex;align-items:center;gap:6px;margin:0 0 12px;padding:5px 14px;border-radius:999px;border:1px solid var(--line);background:#2b145680;font-size:13px}
+.by b{font-weight:800}.by i{font-style:normal;display:inline-block;animation:beat 1.6s ease-in-out infinite}
+@keyframes beat{50%{transform:scale(1.35)}}
+@media (prefers-reduced-motion:reduce){#splash svg.fb,#splash .t1,#splash .t2,.shine,.sp,.by i{animation:none;opacity:1}}
+#alert{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:20px;background:#0d0a1fee}
+#alert.on{display:flex}
+.alb{width:100%;max-width:380px;text-align:center;background:linear-gradient(160deg,var(--card),var(--card2));border:2px solid var(--pink);border-radius:26px;padding:26px 18px}
+.alring{font-size:64px;display:inline-block;animation:shake .5s ease-in-out infinite}
+@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-18deg)}75%{transform:rotate(18deg)}}
+#alert h2{margin:8px 0;font-size:22px}#alert p{margin:0 0 16px;font-size:18px;overflow-wrap:anywhere}
+#alB{display:flex;flex-direction:column;gap:10px}
+#alB button{padding:14px;border-radius:16px;border:0;font:800 17px Cairo,sans-serif;color:#fff;background:var(--acc);cursor:pointer}
+#alB button:first-child{background:linear-gradient(90deg,#7c3aed,#db2777)}
+input[type=time],input[type=datetime-local]{background:var(--card2);border:1px solid var(--line);border-radius:14px;color:var(--txt);padding:12px;font:inherit;font-size:15px;color-scheme:dark}
+.item .sw{width:48px;height:28px;border-radius:99px;background:#3d2a66;position:relative;flex:none;padding:0}
+.item .sw:after{content:"";position:absolute;top:3px;right:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform .2s}
+.item .sw.on{background:var(--acc)}.item .sw.on:after{transform:translateX(-20px)}
+.chat{display:flex;flex-direction:column;gap:10px}
+.msg{max-width:88%;padding:11px 14px;border-radius:18px;line-height:1.7;font-size:15px;overflow-wrap:anywhere}
+.msg.u{align-self:flex-start;background:var(--acc);border-bottom-right-radius:6px}
+.msg.b{align-self:flex-end;background:linear-gradient(160deg,var(--card),var(--card2));border:1px solid var(--line);border-bottom-left-radius:6px}
+.sl{margin:3px 0;padding:6px 10px;background:#0d0a1f66;border-radius:10px}.sl span{font-weight:800;color:var(--pink);margin-inline-start:6px}
+.cin{display:flex;gap:8px;align-items:flex-end}.cin textarea{resize:none;min-height:48px}
+nav button{font-size:11px}nav button i{font-size:19px}
+input[type=date]{background:var(--card2);border:1px solid var(--line);border-radius:14px;color:var(--txt);padding:12px;font:inherit;font-size:15px;color-scheme:dark}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="bug" viewBox="0 0 120 120">
+  <ellipse cx="60" cy="110" rx="34" ry="6" fill="#00000040"/>
+  <line x1="48" y1="22" x2="42" y2="8" stroke="#a78bfa" stroke-width="2"/><circle cx="41" cy="7" r="5" fill="#a78bfa"/>
+  <line x1="72" y1="22" x2="80" y2="10" stroke="#a78bfa" stroke-width="2"/><circle cx="81" cy="9" r="5" fill="#a78bfa"/>
+  <ellipse cx="60" cy="72" rx="38" ry="36" fill="#e11d48"/>
+  <line x1="60" y1="46" x2="60" y2="108" stroke="#3b1a6e" stroke-width="2.5"/>
+  <g fill="#2b1a6e"><circle cx="40" cy="68" r="6"/><circle cx="80" cy="68" r="6"/><circle cx="36" cy="88" r="5"/><circle cx="84" cy="88" r="5"/><circle cx="46" cy="100" r="4"/><circle cx="74" cy="100" r="4"/></g>
+  <ellipse cx="60" cy="40" rx="26" ry="19" fill="#fff"/>
+  <circle cx="51" cy="38" r="3.5" fill="#222"/><circle cx="69" cy="38" r="3.5" fill="#222"/>
+  <circle cx="50" cy="37" r="1.2" fill="#fff"/><circle cx="68" cy="37" r="1.2" fill="#fff"/>
+  <circle cx="43" cy="46" r="4" fill="#f9a8d4"/><circle cx="77" cy="46" r="4" fill="#f9a8d4"/>
+  <path d="M54 46q6 6 12 0" stroke="#222" stroke-width="2" fill="none" stroke-linecap="round"/>
+</symbol></svg>
+<div id="splash" role="presentation"><span class="sp" style="top:18%;right:16%">✨</span><span class="sp" style="top:30%;left:14%;animation-delay:.8s">⭐</span><span class="sp" style="bottom:24%;right:22%;animation-delay:1.4s">✨</span><span class="sp" style="bottom:32%;left:20%;animation-delay:.4s">💜</span><svg class="fb" aria-hidden="true"><use href="#bug"/></svg><p class="t1 shine">غرفة دراسة صفا</p><p class="t2"><b class="shine">كويتتتتتتي كويتتتتتتي اشطر كتكوت كدا كدا</b> ❤️</p></div>
+<div id="alert" role="alertdialog" aria-live="assertive"><div class="alb"><div class="alring">⏰</div><h2 id="alT"></h2><p id="alM"></p><div id="alB"></div></div></div>
+<div id="app">
+<main>
+
+<section id="home" class="on">
+  <div class="top">
+    <div><h1>غرفة دراسة صفا 🌸</h1><p class="sub">مكتبك الدافئ للتركيز والإنجاز مع الدعسوقة الذكية</p><div class="by"><b class="shine">كويتتتتتتي كويتتتتتتي اشطر كتكوت كدا كدا</b> <i>❤️</i></div></div>
+    <button class="ibtn" data-go="sounds" aria-label="الأصوات">🎧</button>
+  </div>
+  <div class="card scene">
+    <div class="win"><span>✨</span><span>★</span></div>
+    <div class="bubble say"></div>
+    <svg class="bug" role="img" aria-label="الدعسوقة"><use href="#bug"/></svg>
+    <svg class="shelf" viewBox="0 0 340 120" aria-hidden="true">
+      <rect x="10" y="98" width="320" height="14" rx="6" fill="#5b21b6"/>
+      <rect x="34" y="68" width="30" height="30" rx="6" fill="#5b3a9e"/><path d="M49 68q-14-22-4-30M49 68q14-22 6-30" stroke="#4ade80" stroke-width="3" fill="none"/>
+      <rect x="86" y="84" width="84" height="14" rx="3" fill="#7c3aed"/><rect x="92" y="70" width="76" height="14" rx="3" fill="#a855f7"/><rect x="92" y="56" width="70" height="14" rx="3" fill="#6366f1"/>
+      <text x="100" y="95" font-size="8" fill="#e9d5ff">SAFA</text>
+      <path class="st" d="M204 66q-7-8 0-16q7-8 0-14"/><path class="st" style="animation-delay:1s" d="M214 66q-7-8 0-16q7-8 0-14"/><path class="st" style="animation-delay:2s" d="M224 66q-7-8 0-16q7-8 0-14"/>
+      <rect x="196" y="72" width="36" height="26" rx="8" fill="#fbcfe8"/><path d="M232 78q12 0 8 10q-4 6-8 4" stroke="#fbcfe8" stroke-width="4" fill="none"/>
+      <path d="M208 80q5 6 10 0" stroke="#a855f7" stroke-width="3" fill="none"/>
+      <rect x="290" y="46" width="8" height="52" fill="#7c3aed"/><path class="glow" d="M270 46a30 30 0 0 1 60 0z" fill="#fde047"/><ellipse cx="294" cy="98" rx="18" ry="4" fill="#7c3aed"/>
+    </svg>
+  </div>
+  <h2>⏱️ ابدئي جلسة تركيز فورية:</h2>
+  <div class="grid3">
+    <button class="chip" data-focus="1500"><b>٢٥ دقيقة</b><small>جلسة سريعة</small></button>
+    <button class="chip" data-focus="3000"><b>٥٠ دقيقة</b><small>تركيز مكثف</small></button>
+    <button class="chip" data-focus="7200"><b>ساعتان</b><small>إنجاز كبير</small></button>
+  </div>
+  <div class="grid3" style="margin-top:12px">
+    <div class="stat"><small>دقائق المذاكرة</small><b id="sMin">0</b><small>دقيقة اليوم</small></div>
+    <div class="stat"><small>الجلسات المنجزة</small><b id="sSes">0</b><small>جلسات تركيز</small></div>
+    <div class="stat"><small>المهام المكتملة</small><b id="sTask">0/0</b><small>واجبات ودروس</small></div>
+  </div>
+  <button class="card link" data-go="tasks"><span class="ic">✅</span><span style="flex:1"><b>قائمة مهام المذاكرة</b><br><small id="left" style="color:var(--mut)"></small></span><span>←</span></button>
+</section>
+
+<section id="timer">
+  <h1>المؤقت ⏱️</h1><p class="sub">اضبطي الوقت كما تحبين: ثواني، دقائق أو ساعات</p>
+  <div class="row" id="modes"></div>
+  <div class="row" id="presets" style="margin-top:10px"></div>
+  <div class="row" style="margin-top:12px" dir="rtl">
+    <input type="number" class="num" id="cH" min="0" max="24" placeholder="س" inputmode="numeric" aria-label="ساعات">
+    <input type="number" class="num" id="cM" min="0" max="999" placeholder="د" inputmode="numeric" aria-label="دقائق">
+    <input type="number" class="num" id="cS" min="0" max="59" placeholder="ث" inputmode="numeric" aria-label="ثواني">
+    <button class="pill on" id="cA">تطبيق</button>
+  </div>
+  <div class="ring">
+    <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="tr" cx="50" cy="50" r="44"/><circle class="pg" id="pg" cx="50" cy="50" r="44"/></svg>
+    <div class="tm" id="tm" role="timer">25:00</div>
+  </div>
+  <input type="text" id="subj" placeholder="ماذا ستذاكرين الآن؟ (مثال: أحياء)" maxlength="60" aria-label="المادة">
+  <button class="go" id="go">ابدئي المذاكرة</button>
+  <button class="ghost" id="rst">إعادة ضبط</button>
+  <h2>📚 سجل الجلسات</h2>
+  <div id="lList"></div>
+  <button class="ghost" id="clrLog" style="display:none">🗑️ حذف سجل الجلسات</button>
+</section>
+
+<section id="alarm">
+  <h1>المنبه ⏰</h1><p class="sub">منبه بوقت محدد أو مؤقت تنازلي، مع تأجيل واهتزاز</p>
+  <div class="row" id="amodes"><button class="pill on" data-am="clock">⏰ منبه بوقت</button><button class="pill" data-am="cd">⏳ مؤقت تنازلي</button></div>
+  <div class="card" style="margin-top:12px">
+    <input type="text" id="aL" placeholder="اسم المنبه (اختياري)" maxlength="40" aria-label="اسم المنبه">
+    <div id="aClock" style="margin-top:10px"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><input type="time" id="aT" aria-label="وقت المنبه" style="flex:1;min-width:0"><label class="pill" style="display:flex;gap:6px;align-items:center;flex:none"><input type="checkbox" id="aR" style="accent-color:#7c3aed"> يومياً</label></div></div>
+    <div id="aCd" style="display:none;margin-top:10px">
+      <div class="row" dir="rtl"><input type="number" class="num" id="aH" min="0" max="24" placeholder="س" inputmode="numeric" aria-label="ساعات"><input type="number" class="num" id="aM" min="0" max="999" placeholder="د" inputmode="numeric" aria-label="دقائق"><input type="number" class="num" id="aS" min="0" max="59" placeholder="ث" inputmode="numeric" aria-label="ثواني"></div>
+      <div class="row" style="margin-top:8px"><button class="pill" data-ap="60">1 د</button><button class="pill" data-ap="300">5 د</button><button class="pill" data-ap="600">10 د</button><button class="pill" data-ap="900">15 د</button><button class="pill" data-ap="1800">30 د</button><button class="pill" data-ap="3600">ساعة</button></div>
+    </div>
+    <button class="go" id="aAdd" style="margin-top:12px;font-size:16px;padding:12px">+ إضافة المنبه</button>
+  </div>
+  <div class="row" style="justify-content:space-between;margin:14px 2px 0"><b>مدة التأجيل</b><select id="aSn" aria-label="مدة التأجيل"><option value="5">٥ دقائق</option><option value="10">١٠ دقائق</option><option value="15">١٥ دقيقة</option></select></div>
+  <h2>منبهاتي</h2><div id="aList"></div>
+</section>
+
+<section id="tasks">
+  <div class="top">
+    <div><h1>مهام المذاكرة والواجبات 📝</h1><p class="sub">نظمي دروسك واحفظي إنجازاتك على هاتفك بدون إنترنت</p></div>
+    <button class="add" id="addBtn">+ إضافة مهمة</button>
+  </div>
+  <div class="card" id="form" style="display:none;margin-bottom:12px">
+    <input type="text" id="tIn" placeholder="ما المهمة؟" maxlength="80" aria-label="المهمة">
+    <p class="sub" style="margin:10px 0 6px">⏰ اختياري: حددي موعد منبه للمهمة (صوت عالٍ + اهتزاز)</p>
+    <div class="row" style="margin-top:10px;justify-content:space-between">
+      <input type="datetime-local" id="tAl" aria-label="موعد المنبه" style="flex:1;min-width:0"><select id="tCat" aria-label="النوع"><option>مذاكرة</option><option>واجب</option><option>مراجعة</option></select>
+      <button class="add" id="tSave">حفظ</button>
+    </div>
+  </div>
+  <div class="card prog"><div class="row" style="justify-content:space-between"><b>مستوى إنجاز مهام اليوم</b><span id="pTxt"></span></div><div class="bar"><i id="bar"></i></div></div>
+  <div class="ftabs"><button class="on" data-f="all" id="fAll"></button><button data-f="open" id="fOpen"></button><button data-f="done" id="fDone"></button></div>
+  <div id="tList"></div>
+  <h2>📝 الملاحظات</h2>
+  <textarea id="nIn" placeholder="اكتبي ملاحظة عن درس أو فكرة…" aria-label="ملاحظة جديدة"></textarea>
+  <button class="go" id="nAdd" style="margin-top:10px;font-size:16px;padding:11px">حفظ الملاحظة</button>
+  <div id="nList" style="margin-top:12px"></div>
+</section>
+
+<section id="nook">
+  <h1>ركني الهادي 🌿</h1><p class="sub" id="cbMode">مساحتكِ الهادئة للكلام وترتيب وقتكِ</p>
+  <details class="card" id="prof" style="margin-bottom:12px"><summary style="cursor:pointer;font-weight:600">🎓 ملفي الدراسي (ثالث ثانوي)</summary>
+    <div style="display:grid;gap:8px;margin-top:10px">
+      <select id="pTrk" aria-label="الشعبة"><option value="">اختاري شعبتكِ</option><option>علمي علوم</option><option>علمي رياضة</option><option>أدبي</option></select>
+      <label class="sub" style="margin:0">موعد بداية الامتحانات<input type="date" id="pEx" style="width:100%;margin-top:4px"></label>
+      <input type="text" id="pWk" placeholder="المواد الأضعف عندكِ (افصلي بفاصلة)" maxlength="80" aria-label="المواد الأضعف">
+    </div></details>
+  <div id="chat" class="chat" aria-live="polite"></div>
+  <div class="row" style="justify-content:flex-start;margin:14px 0 8px">
+    <button class="pill" data-q="اعملي لي جدول مذاكرة لليوم">📅 جدول اليوم</button>
+    <button class="pill" data-q="اعملي لي خطة أسبوعية">🗓 خطة أسبوعية</button>
+    <button class="pill" data-q="باقي كام يوم على الامتحانات؟">⏳ كم باقي؟</button>
+    <button class="pill" data-q="كيف أركز أكثر وقت المذاكرة؟">🎯 نصائح للتركيز</button>
+    <button class="pill" data-q="أشعر بالتوتر والضغط">💜 أحتاج تهدئة</button>
+    <button class="pill" data-q="مش قادرة أبدأ أذاكر">😴 مش قادرة أبدأ</button>
+  </div>
+  <div class="cin"><textarea id="cIn" rows="2" placeholder="اكتبي لـ«ركني الهادي»… مثال: اعملي لي جدول مذاكرة" aria-label="رسالتك"></textarea><button class="add" id="cSend" aria-label="إرسال" style="height:48px">➤</button></div>
+  <button class="ghost" id="cClr">مسح المحادثة</button>
+  <details id="kBox" style="margin:12px 4px 0;text-align:center"><summary style="cursor:pointer;font-size:13px;opacity:.8">⚙️ تفعيل المساعد الذكي في التطبيق</summary>
+   <p style="font-size:12px;opacity:.8;line-height:1.7;margin:8px 0">للتطبيق المحوَّل: الصقي مفتاح Anthropic API الخاص بكِ (يبدأ بـ sk-ant). يُحفظ على جهازكِ فقط.</p>
+   <input type="password" id="kIn" placeholder="sk-ant-..." dir="ltr" autocomplete="off" style="width:100%;box-sizing:border-box;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--card2);color:var(--txt);font-family:inherit">
+   <div class="row" style="margin-top:8px;justify-content:center"><button class="pill on" id="kSave">حفظ</button><button class="pill" id="kDel">حذف المفتاح</button></div>
+   <div id="kMsg" style="font-size:12px;margin-top:6px;opacity:.9"></div></details>
+</section>
+
+<section id="sounds">
+  <h1>أصوات الراحة والتركيز 🎧</h1><p class="sub">أجواء صوتية مهدئة تعمل دون الحاجة إلى الإنترنت</p>
+  <div class="card info">الأصوات المشغلة حالياً: <b id="aCnt">0</b></div>
+  <div id="sList"></div>
+  <h2>مستوى الصوت</h2>
+  <input type="range" id="vol" min="0" max="100" value="45" aria-label="مستوى الصوت">
+</section>
+
+</main>
+<div id="dock"><div id="mate"><svg class="mini" aria-hidden="true"><use href="#bug"/></svg><div class="bubble say"></div></div>
+<nav>
+  <button class="on" data-go="home"><i>🏠</i>المكتب</button>
+  <button data-go="timer"><i>⏱️</i>المؤقت</button>
+  <button data-go="alarm"><i>⏰</i>المنبه</button>
+  <button data-go="tasks"><i>✅</i>المهام</button>
+  <button data-go="nook"><i>🌿</i>ركني الهادي</button>
+  <button data-go="sounds"><i>🎵</i>الأصوات</button>
+</nav></div>
+</div>
+
+<script>
+var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
+var day=new Date().toDateString(),S={day:day,sec:0,ses:0,tasks:[],notes:[],log:[],alarms:[],snz:10,chat:[],prof:{track:'',exam:'',weak:''}};
+try{var j=JSON.parse(localStorage.getItem('safaRoom2')||'null');
+ if(j){S.tasks=j.tasks||[];S.notes=j.notes||[];S.alarms=j.alarms||[];S.chat=j.chat||[];S.prof=j.prof||S.prof;S.snz=j.snz||10;if(j.day===day){S.sec=j.sec||0;S.ses=j.ses||0;S.log=j.log||[]}}}catch(e){}
+function save(){try{localStorage.setItem('safaRoom2',JSON.stringify(S))}catch(e){}}
+function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+function pad(n){return n<10?'0'+n:''+n}
+function fmt(s){var h=Math.floor(s/3600),m=Math.floor(s%3600/60);return(h?h+':'+pad(m):pad(m))+':'+pad(s%60)}
+function dur(s){var h=Math.floor(s/3600),m=Math.floor(s%3600/60),c=s%60,a=[];if(h)a.push(h+' س');if(m)a.push(m+' د');if(c||!a.length)a.push(c+' ث');return a.join(' ')}
+
+/* ---- الدعسوقة ---- */
+var MSG={
+hi:['أهلاً بكِ يا صفا في غرفتكِ المريحة! 🐞💜','صباح النشاط يا صفا! جاهزة نبدأ؟ 🌸','أنا هنا معكِ طوال الوقت، لستِ وحدكِ 💜','يوم جديد وفرصة جديدة لتتألقي ✨','مكتبكِ مرتّب والدعسوقة جاهزة، فماذا ننتظر؟ 🐞','أنتِ أذكى مما تظنين يا صفا 🌟','كل نجاح كبير بدأ بخطوة صغيرة مثل هذه 🌱','تعالي نصنع يوماً تفخرين به 💪'],
+start:['ممتاز! ركّزي وأنا أراقب الوقت 🐞','ابدئي بهدوء، كل دقيقة تُحسب لكِ 💜','أنتِ قادرة على ذلك يا صفا! 🌟','أغلقي الإشعارات وادخلي عالم التركيز 🎧','أول خمس دقائق هي الأصعب، ثم تنطلقين 🚀','خذي نفساً عميقاً... والآن ابدئي 🌬️','كل سطر تذاكرينه يقرّبكِ من حلمكِ 🎓','أنا أصفّق لكِ من الآن 👏','الوقت لكِ، فاستغليه بذكاء 💫','عقلكِ جاهز وقلبكِ مطمئن، انطلقي! 💜','ركّزي على اللحظة الحالية فقط 🎯','جلسة جديدة = إنجاز جديد ✨'],
+doing:['الدعسوقة بتذاكر معاكي 🐞','استمري، أنتِ تقتربين من هدفكِ 💪','تنفّسي بعمق وكمّلي، أنتِ رائعة 🌸','لا تتوقفي، أنتِ أفضل مما كنتِ بالأمس 📈','التركيز قوتكِ الخارقة يا صفا ⚡','كل دقيقة تمر هي استثمار في مستقبلكِ 💎','أنا فخورة بصبركِ 💜','ما زلتِ تركّزين؟ هذا مذهل! 🌟','المعلومة التي تتعلمينها الآن ستفيدكِ كثيراً 📚','حتى لو شعرتِ بالتعب، أنتِ أقوى منه 💪','واصلي، النهاية قريبة والنتيجة تستحق 🏁','اجعلي هدفكِ أمام عينيكِ دائماً 🎯','عقلكِ يحفظ أكثر مما تتخيلين 🧠','اشربي رشفة ماء ثم أكملي 💧','اعتدلي في جلستكِ وأرخي كتفيكِ 🪑','كل صفحة تنهينها تقرّبكِ من النجاح 📖','الإنجاز الحقيقي يأتي من الاستمرار 🌱','أنا معكِ، لا تلتفتي لأي مشتتات 📵','ما شاء الله، تركيز يُبهر الدعسوقة 🐞✨','اصبري قليلاً، الحصاد قريب 🌾','اقتربنا! لا تستسلمي الآن 🔥','صفا تذاكر والنجاح ينتظر 💜'],
+rest:['استريحي قليلاً وأغمضي عينيكِ دقيقة 🌿','قومي وتمشّي قليلاً، جسمكِ يشكركِ 🚶‍♀️','اشربي ماءً وتنفّسي ببطء 💧','الراحة جزء من المذاكرة، استمتعي بها ☕'],
+done:['أحسنتِ يا صفا! 🎉 جلسة ناجحة، استريحي قليلاً','فخورة بكِ! 💜 خذي استراحة تستحقينها ☕','أنجزتِ جلسة كاملة! أنتِ بطلة 🏆','رائع! مدّدي جسمكِ واشربي ماءً 💧','كل جلسة تُضاف إلى رصيد نجاحكِ ⭐','عمل مذهل! الراحة جزء من المذاكرة 🌸','تستحقين التصفيق الآن 👏👏','الدعسوقة سعيدة بإنجازكِ جداً 🐞🎊','جلسة بعد جلسة تصنعين المستقبل 🚀','ممتاز! استريحي ثم نعود أقوى 💪'],
+task:['مهمة أخرى أُنجزت! أنتِ نجمة ⭐','عمل رائع! تابعي هكذا 🎉','شطبتِ مهمة، وهذا شعور جميل أليس كذلك؟ ✅','خطوة جديدة نحو هدفكِ 🎯','ما شاء الله عليكِ! 💜','قائمتكِ تتقلص بفضل جهدكِ ✨','كل مهمة تُنجَز تقوّي ثقتكِ بنفسكِ 💪','يا لها من إنجازات! 🌟'],
+idle:['لا بأس إن كان اليوم ثقيلاً، المهم أن تبدئي 💜','الدعسوقة تؤمن بكِ دائماً 🐞','النجاح تراكم عادات صغيرة، وأنتِ تبنين عادتكِ ✨','ابدئي ولو بعشر دقائق فقط وسترين الفرق ⏱️','لا تقارني نفسكِ بأحد، قارني نفسكِ بأمس 🌸','أخطاؤكِ ليست فشلاً بل دروس تقرّبكِ من النجاح 📈','مذاكرة اليوم هي فرحة الغد 🎓','أنتِ تستحقين أن تحققي أحلامكِ 🌟','خذي وقتكِ لكن لا تتخلي عن حلمكِ 💜','اكتبي مهامكِ وسأذكّركِ بها 📝','الراحة مهمة لكن الهدف أهم 🎯','أنتِ أقوى مما تظنين يا صفا 💪','ابتسمي! فالدعسوقة تجلب الحظ السعيد 🐞🍀','كوب شاي دافئ وكتاب جميل وتبدأ الرحلة ☕📖','لا تؤجلي، فالغد مشغول بمهام جديدة ⏳','تعب اليوم سيتحول إلى فخر الغد 🏅','الإصرار يصنع المعجزات ✨','كل عالمة كبيرة كانت يوماً مبتدئة مثلكِ 🔬','رتّبي مكتبكِ ورتّبي أفكاركِ 🧹','أؤمن بكِ أكثر مما تؤمنين بنفسكِ، فصدّقيني 💜']};
+var lastMsg='';
+function say(k){var a=MSG[k],t;do{t=a[Math.floor(Math.random()*a.length)]}while(t===lastMsg&&a.length>1);lastMsg=t;$$('.say').forEach(function(e){e.textContent=t})}
+
+var _cl=0;$('#clrLog').onclick=function(){var b=this;if(!_cl){_cl=1;b.textContent='⚠️ اضغطي مرة أخرى للتأكيد';setTimeout(function(){_cl=0;b.textContent='🗑️ حذف سجل الجلسات'},4000);return}
+ _cl=0;S.log=[];b.textContent='🗑️ حذف سجل الجلسات';save();render();say('idle')};
+var MORE={
+hi:['يا أهلاً بصفا! الدعسوقة كانت مستنياكِ 🐞💜','صفا النهاردة هتعمل حاجة حلوة، أنا متأكدة 🌸','يا صفا، وجودكِ هنا معناه إنكِ بتحاولي، وده أهم شيء 💪','صباح الخير يا صفا! خطوة صغيرة النهاردة تكفي 🌱'],
+start:['يلا يا صفا، أنتِ قدها وقدود! 💪🐞','صفا بدأت يعني النجاح بدأ ✨','أنا جنبكِ يا صفا، ركّزي وأنا أحرس الوقت 🐞','صفا الشاطرة، خمس دقائق وهتنسي نفسكِ في التركيز 🚀'],
+doing:['برافو يا صفا! كمّلي، الدعسوقة فخورة بيكِ 🐞💜','صفا مش بتستسلم، وده سرّ تفوقكِ 🌟','كل صفحة بتخلّصيها يا صفا بتقرّبكِ من حلمكِ 🎓','شاطرة يا صفا! عقلكِ بيتدرب دلوقتي 💪','صفا قوية وصبورة، وده اللي هيوصلكِ 🏆'],
+rest:['استريحي يا صفا، استراحتكِ بتخلّي مذاكرتكِ أحسن 🌸','اشربي مياه يا صفا وريّحي عينيكِ شوية 💧','صفا تستاهل راحة حلوة بعد التعب ده 💜'],
+done:['برافو عليكِ يا صفا! 🎉🐞 أنتِ بطلة بجد','صفا خلّصت جلسة كاملة، أنا بصقّفلك من هنا 👏','فخورة بيكِ يا صفا، كمان جلسة وتبقي نجمة ⭐','يا سلام يا صفا! الإنجاز ده بتاعكِ أنتِ 🏆'],
+task:['شاطرة يا صفا! مهمة كمان اتعملت ✅🎊','مهمة تخلص ومهمة تبدأ، وصفا ماشية صح 💪','أحسنتِ يا صفا! شطب المهام له طعم حلو 🐞'],
+idle:['صفا، أنتِ أذكى وأقوى مما تتخيلي 🌟','الدعسوقة بتقول: صفا هتوصل لحلمها بإذن الله 🐞🎓','يوم الامتحان هتفتكري تعبكِ ده وهتفرحي يا صفا 💜','مش لازم تبقي كاملة يا صفا، يكفي إنكِ مستمرة ✨','صفا، اتعبتي النهاردة؟ كفاية إنكِ حاولتي، وأنا فخورة بيكِ 💜','أنا بحبك يا صفا وبثق فيكِ دايماً 🐞💕','قدّامكِ مستقبل مشرق يا صفا، كملي 🌅']};
+Object.keys(MORE).forEach(function(k){if(MSG[k])MSG[k]=MSG[k].concat(MORE[k])});
+say('hi');
+setInterval(function(){say(run?(mode==='focus'?'doing':'rest'):'idle')},14000);
+
+/* ---- التنقل ---- */
+var tabs=['home','timer','alarm','tasks','nook','sounds'];
+function go(t){tabs.forEach(function(x){$('#'+x).classList.toggle('on',x===t)});
+ $$('nav button').forEach(function(b,i){b.classList.toggle('on',tabs[i]===t)});
+ $('#mate').style.display=(t==='home'||t==='nook')?'none':'flex';window.scrollTo(0,0)}
+$$('[data-go]').forEach(function(b){b.onclick=function(){go(b.dataset.go)}});
+$('.bug').onclick=function(){say(run?'doing':'idle')};
+$('#mate').onclick=function(){say(run?'doing':'idle')};
+
+/* ---- المؤقت ---- */
+var C=2*Math.PI*44,pg=$('#pg');pg.style.strokeDasharray=C;
+var mode='focus',focusSec=1500,total=1500,rem=1500,run=false,iv=null,endAt=0;
+var MODES={focus:'تركيز',short:'استراحة قصيرة',long:'استراحة طويلة'};
+function setSec(s){total=rem=s;stop();draw()}
+function lab(s){return s>=3600?(s===3600?'ساعة':s===7200?'ساعتان':(s/3600)+' ساعات'):s%60?dur(s):(s/60)+' د'}
+function buildChips(){
+ var h='';Object.keys(MODES).forEach(function(k){h+='<button class="pill'+(k===mode?' on':'')+'" data-m="'+k+'">'+MODES[k]+'</button>'});
+ $('#modes').innerHTML=h;
+ var p=mode==='focus'?[60,300,900,1500,3000,3600,7200]:mode==='short'?[300,180]:[900,600];h='';
+ p.forEach(function(s){h+='<button class="pill'+(total===s?' on':'')+'" data-t="'+s+'">'+lab(s)+'</button>'});
+ $('#presets').innerHTML=h;
+ $$('#modes .pill').forEach(function(b){b.onclick=function(){mode=b.dataset.m;setSec(mode==='focus'?focusSec:mode==='short'?300:900);buildChips()}});
+ $$('#presets .pill').forEach(function(b){b.onclick=function(){var s=+b.dataset.t;if(mode==='focus')focusSec=s;setSec(s);buildChips()}});
+}
+$('#cA').onclick=function(){
+ var s=(+$('#cH').value||0)*3600+(+$('#cM').value||0)*60+(+$('#cS').value||0);
+ if(s<1)return;s=Math.min(s,86400);if(mode==='focus')focusSec=s;setSec(s);buildChips()};
+function draw(){
+ $('#tm').textContent=fmt(rem);pg.style.strokeDashoffset=C*(1-rem/total);
+ $('#go').textContent=run?'إيقاف مؤقت':'ابدئي المذاكرة';
+}
+function tick(){rem=Math.max(0,Math.ceil((endAt-Date.now())/1000));draw();if(rem===0)finish()}
+function start(){if(rem===0)rem=total;audio();askNotif();wakeOn();endAt=Date.now()+rem*1000;run=true;iv=setInterval(tick,500);clearTimeout(toT);toT=setTimeout(tick,rem*1000+60);draw();say(mode==='focus'?'start':'rest')}
+function stop(){run=false;clearInterval(iv);clearTimeout(toT);wakeOff();draw()}
+function logS(sec,part){
+ S.sec+=sec;if(!part)S.ses++;
+ S.log.unshift({s:$('#subj').value.trim()||'مذاكرة عامة',sec:sec,p:part,t:new Date().toLocaleTimeString('ar-EG',{hour:'2-digit',minute:'2-digit'})});
+ if(S.log.length>60)S.log.pop();save();render()}
+function finish(){
+ stop();var wasF=mode==='focus';alarm(wasF?'🎉 انتهى وقت المذاكرة!':'⏰ انتهت الاستراحة','أحسنتِ يا صفا! اضغطي لإيقاف المنبه',[{l:'إيقاف المنبه',fn:stopAlarm},{l:'تأجيل '+(S.snz||10)+' دقائق',fn:function(){stopAlarm();mode=wasF?'focus':'short';setSec((S.snz||10)*60);buildChips();start()}}]);
+ if(mode==='focus'){logS(total,false);say('done');mode='short';setSec(300)}
+ else{mode='focus';setSec(focusSec);say('idle')}
+ buildChips()}
+$('#go').onclick=function(){run?stop():start()};
+$('#rst').onclick=function(){var e=total-rem;if(mode==='focus'&&e>=10)logS(e,true);setSec(total);buildChips();say('hi')};
+$$('[data-focus]').forEach(function(b){b.onclick=function(){mode='focus';focusSec=+b.dataset.focus;setSec(focusSec);buildChips();go('timer');start()}});
+
+/* ---- المهام والملاحظات ---- */
+var flt='all';
+$$('.ftabs button').forEach(function(b){b.onclick=function(){flt=b.dataset.f;$$('.ftabs button').forEach(function(x){x.classList.toggle('on',x===b)});render()}});
+function render(){
+ var n=S.tasks.length,d=S.tasks.filter(function(t){return t.d}).length,pc=n?Math.round(d/n*100):0;
+ $('#sMin').textContent=Math.floor(S.sec/60);$('#sSes').textContent=S.ses;$('#sTask').textContent=d+'/'+n;
+ $('#left').textContent='لديكِ '+(n-d)+' مهمة متبقية لليوم';
+ $('#pTxt').textContent=d+' من '+n+' ('+pc+'%)';$('#bar').style.width=pc+'%';
+ $('#fAll').textContent='الكل ('+n+')';$('#fOpen').textContent='المتبقية ('+(n-d)+')';$('#fDone').textContent='المكتملة ('+d+')';
+ var h='';S.tasks.forEach(function(t,i){if(flt==='open'&&t.d||flt==='done'&&!t.d)return;
+  h+='<div class="item'+(t.d?' done':'')+'"><button class="ck" data-c="'+i+'" aria-label="إنجاز">'+(t.d?'✓':'')+'</button><span class="tx"><b>'+esc(t.t)+'</b>'+(t.a?'<br><small>⏰ '+fmtA(t.a)+'</small>':'')+'</span><span class="tag">'+esc(t.c)+'</span><button data-x="'+i+'" aria-label="حذف">🗑</button></div>'});
+ $('#tList').innerHTML=h||'<div class="empty">لا توجد مهام هنا، اضغطي «إضافة مهمة» 🌱</div>';
+ $('#nList').innerHTML=S.notes.length?S.notes.map(function(x,i){
+  return '<div class="item"><span class="tx">'+esc(x.t)+'<br><small>'+esc(x.w)+'</small></span><button data-n="'+i+'" aria-label="حذف">🗑</button></div>'}).join(''):'<div class="empty">لا توجد ملاحظات بعد</div>';
+ $('#clrLog').style.display=S.log.length?'block':'none';
+ $('#lList').innerHTML=S.log.length?S.log.map(function(l){
+  return '<div class="item"><span class="tx"><b>'+esc(l.s)+'</b><br><small>'+esc(l.t)+(l.p?' · جلسة جزئية':' · جلسة كاملة')+'</small></span><b>'+dur(l.sec)+'</b></div>'}).join(''):'<div class="empty">أكملي جلسة تركيز لتظهر هنا</div>';
+ $$('[data-c]').forEach(function(b){b.onclick=function(){var t=S.tasks[+b.dataset.c];t.d=!t.d;if(t.d)say('task');save();render()}});
+ $$('[data-x]').forEach(function(b){b.onclick=function(){S.tasks.splice(+b.dataset.x,1);save();render()}});
+ $$('[data-n]').forEach(function(b){b.onclick=function(){S.notes.splice(+b.dataset.n,1);save();render()}});
+}
+$('#addBtn').onclick=function(){var f=$('#form');f.style.display=f.style.display==='none'?'block':'none';$('#tIn').focus()};
+function addTask(){var v=$('#tIn').value.trim();if(!v)return;var a=$('#tAl').value?new Date($('#tAl').value).getTime():0;if(a){audio();askNotif()}S.tasks.push({t:v,c:$('#tCat').value,d:false,a:a,f:0});$('#tIn').value='';$('#tAl').value='';$('#form').style.display='none';save();render()}
+$('#tSave').onclick=addTask;$('#tIn').onkeydown=function(e){if(e.key==='Enter')addTask()};
+$('#nAdd').onclick=function(){var v=$('#nIn').value.trim();if(!v)return;
+ S.notes.unshift({t:v,w:new Date().toLocaleDateString('ar-EG',{day:'numeric',month:'long'})});$('#nIn').value='';save();render()};
+
+/* ---- الأصوات (تُولَّد داخل الجهاز بدون إنترنت) ---- */
+var ctx,master,buf,act={};
+function audio(){if(!ctx){var A=window.AudioContext||window.webkitAudioContext;if(!A)return false;
+ ctx=new A();master=ctx.createGain();master.gain.value=$('#vol').value/100;master.connect(ctx.destination);
+ buf=ctx.createBuffer(1,ctx.sampleRate*2,ctx.sampleRate);var d=buf.getChannelData(0);for(var i=0;i<d.length;i++)d[i]=Math.random()*2-1}
+ if(ctx.state==='suspended')ctx.resume();return true}
+function nz(){var s=ctx.createBufferSource();s.buffer=buf;s.loop=true;s.start();return s}
+function chain(src,type,f,g,q){var fl=ctx.createBiquadFilter();fl.type=type;fl.frequency.value=f;if(q)fl.Q.value=q;
+ var gn=ctx.createGain();gn.gain.value=g;src.connect(fl);fl.connect(gn);gn.connect(master);return gn}
+function lfo(rate,depth,param){var o=ctx.createOscillator(),g=ctx.createGain();o.frequency.value=rate;g.gain.value=depth;o.connect(g);g.connect(param);o.start();return o}
+function blip(f,g,t){var o=ctx.createOscillator(),e=ctx.createGain(),n=ctx.currentTime;o.frequency.value=f;
+ e.gain.setValueAtTime(g,n);e.gain.exponentialRampToValueAtTime(.0001,n+t);o.connect(e);e.connect(master);o.start();o.stop(n+t)}
+var ringT=null,vibT=null,stopTO=null,alOpen=false,toT=0,wl=null;
+function tone(f,t0,dur,g){var o=ctx.createOscillator(),e=ctx.createGain();o.type='square';o.frequency.value=f;
+ e.gain.setValueAtTime(.0001,t0);e.gain.exponentialRampToValueAtTime(g,t0+.01);e.gain.setValueAtTime(g,t0+dur-.04);e.gain.exponentialRampToValueAtTime(.0001,t0+dur);
+ o.connect(e);e.connect(ctx.destination);o.start(t0);o.stop(t0+dur+.02)}
+function ringOnce(){if(!ctx)return;if(ctx.state==='suspended')ctx.resume();var n=ctx.currentTime+.03;
+ for(var i=0;i<4;i++){tone(1318,n+i*.5,.18,.6);tone(988,n+i*.5+.2,.18,.6)}}
+function vibOnce(){try{if(navigator.vibrate)navigator.vibrate([500,150,500,150,500,150,800])}catch(e){}}
+function stopRing(){clearInterval(ringT);clearInterval(vibT);clearTimeout(stopTO);try{if(navigator.vibrate)navigator.vibrate(0)}catch(e){}}
+function stopAlarm(){stopRing();$('#alert').classList.remove('on');alOpen=false}
+function alarm(title,msg,acts){
+ alOpen=true;stopRing();$('#alT').textContent=title;$('#alM').textContent=msg;
+ var b=$('#alB');b.innerHTML='';acts.forEach(function(a){var x=document.createElement('button');x.textContent=a.l;x.onclick=a.fn;b.appendChild(x)});
+ $('#alert').classList.add('on');audio();ringOnce();vibOnce();
+ ringT=setInterval(ringOnce,2200);vibT=setInterval(vibOnce,2800);stopTO=setTimeout(stopAlarm,90000);
+ try{if(document.hidden&&'Notification' in window&&Notification.permission==='granted')new Notification(title,{body:msg})}catch(e){}}
+function askNotif(){try{if('Notification' in window&&Notification.permission==='default')Notification.requestPermission()}catch(e){}}
+function wakeOn(){try{if(navigator.wakeLock&&!wl)navigator.wakeLock.request('screen').then(function(l){wl=l;l.addEventListener('release',function(){wl=null})}).catch(function(){})}catch(e){}}
+function wakeOff(){try{if(wl){wl.release();wl=null}}catch(e){}}
+function fmtA(ts){return new Date(ts).toLocaleString('ar-EG',{weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}
+function ringTask(t){var late=Date.now()-t.a>120000;
+ alarm(late?'⏰ منبه مهمة فاتك':'⏰ منبه مهمة',t.t,[
+  {l:'تمت ✅',fn:function(){t.d=true;say('task');save();render();stopAlarm()}},
+  {l:'تأجيل ١٠ دقائق',fn:function(){t.a=Date.now()+600000;t.f=0;save();render();stopAlarm()}},
+  {l:'إيقاف المنبه',fn:stopAlarm}])}
+function checkAlarms(){if(alOpen)return;var now=Date.now();
+ for(var i=0;i<S.tasks.length;i++){var t=S.tasks[i];if(t.a&&!t.d&&!t.f&&t.a<=now){t.f=1;save();render();ringTask(t);return}}}
+var amode='clock';
+function nextAt(hm){var p=hm.split(':'),d=new Date();d.setHours(+p[0],+p[1],0,0);if(d.getTime()<=Date.now())d.setDate(d.getDate()+1);return d.getTime()}
+function fmtHM(hm){var p=hm.split(':');return new Date(2000,0,1,+p[0],+p[1]).toLocaleTimeString('ar-EG',{hour:'2-digit',minute:'2-digit'})}
+function tickList(){$$('[data-r]').forEach(function(e){var a=S.alarms[+e.dataset.r];if(!a)return;e.textContent=a.on?'يرن بعد '+dur(Math.max(0,Math.ceil((a.at-Date.now())/1000))):'متوقف'})}
+function renderAl(){
+ $('#aSn').value=S.snz||10;
+ $('#aList').innerHTML=S.alarms.length?S.alarms.map(function(a,i){
+  return '<div class="item"><span class="ic" style="width:42px;height:42px;font-size:20px">'+(a.k==='cd'?'⏳':'⏰')+'</span><span class="tx"><b>'+esc(a.l)+'</b><br><small>'+(a.k==='cd'?'مؤقت '+dur(a.dur):fmtHM(a.hm)+(a.rep?' · يومياً':' · مرة واحدة'))+'</small><br><small data-r="'+i+'"></small></span><button class="sw'+(a.on?' on':'')+'" data-at="'+i+'" role="switch" aria-checked="'+(a.on?'true':'false')+'" aria-label="تشغيل أو إيقاف"></button><button data-ad="'+i+'" aria-label="حذف">🗑</button></div>'}).join(''):'<div class="empty">لا توجد منبهات، أضيفي أول منبه ⏰</div>';
+ $$('[data-at]').forEach(function(b){b.onclick=function(){var a=S.alarms[+b.dataset.at];a.on=!a.on;if(a.on)a.at=a.k==='cd'?Date.now()+a.dur*1000:nextAt(a.hm);save();renderAl()}});
+ $$('[data-ad]').forEach(function(b){b.onclick=function(){S.alarms.splice(+b.dataset.ad,1);save();renderAl()}});
+ tickList()}
+function setAm(m){amode=m;$('#aClock').style.display=m==='clock'?'block':'none';$('#aCd').style.display=m==='cd'?'block':'none';
+ $$('#amodes .pill').forEach(function(b){b.classList.toggle('on',b.dataset.am===m)})}
+$$('#amodes .pill').forEach(function(b){b.onclick=function(){setAm(b.dataset.am)}});
+$$('[data-ap]').forEach(function(b){b.onclick=function(){var s=+b.dataset.ap;$('#aH').value=Math.floor(s/3600)||'';$('#aM').value=Math.floor(s%3600/60)||'';$('#aS').value=s%60||''}});
+$('#aSn').onchange=function(){S.snz=+this.value;save()};
+/* ---- ركني الهادي ---- */
+var SMP=null,busy=false,pend=null,fbI=-1;
+var SYS2='أنتِ «ركني الهادي»: مدرّبة مذاكرة ومرشدة دافئة وذكية لطالبة اسمها صفا في الصف الثالث الثانوي (الثانوية العامة)، وتخففين عنها ضغط السنة الأخيرة. تكلمي بعربية بسيطة قريبة من العامية المصرية المهذبة إلا إذا كتبت صفا بلهجة أخرى فاتبعي لهجتها، بإيجاز ووضوح (٣ إلى ١٠ أسطر، وأطول قليلاً عند شرح درس أو حل مسألة). تعرفين نظام الثانوية العامة المصري: الشعب (علمي علوم، علمي رياضة، أدبي) ومواد كل شعبة، والامتحانات الورقية وورقة الإجابة والبابل شيت، والنماذج الاسترشادية وامتحانات السنوات السابقة، وتنسيق الجامعات. وإن كان نظام صفا مختلفاً فاسأليها واتبعي نظامها، ولا تخترعي تفاصيل منهج لا تعرفينها. ساعديها في: جداول واقعية تناسب الوقت المتبقي وشعبتها ومواد ضعفها (المواد الصعبة في أفضل أوقات تركيزها، التبديل بين المواد، المراجعة المتباعدة، نموذج امتحان أسبوعي، نوم لا يقل عن ٧ ساعات)؛ وطرق مذاكرة نشطة (التسميع، حل المسائل، دفتر الأخطاء، الخرائط الذهنية)؛ وشرح الدروس وحل المسائل خطوة بخطوة مع سؤال تأكد قصير؛ والقلق وضغط الأهل والتسويف والتشتت؛ وخطة ليلة الامتحان وتكتيكات الامتحان. إن لم تعرفي شعبتها أو موعد امتحاناتها أو ساعات يومها فاسألي سؤالاً واحداً قصيراً فقط عند الحاجة. لا تعدي بدرجات أو مجموع معين. عند الجدول اليومي اكتبي كل بند في سطر مستقل بالصيغة بالضبط وبأرقام إنجليزية بنظام ٢٤ ساعة: HH:MM-HH:MM | العنوان، مثال: 16:00-16:45 | أحياء (مراجعة الدرس الثالث). وللخطط الأسبوعية استخدمي سطراً عادياً لكل يوم. لا ماركداون (لا جداول ولا نجوم ولا عناوين). أنتِ لستِ طبيبة، وللضيق الشديد أو المستمر شجعيها على التحدث مع شخص تثق به أو مختص.';
+var TRK={'علمي علوم':['أحياء','كيمياء','فيزياء','عربي','إنجليزي','لغة ثانية'],'علمي رياضة':['تفاضل وتكامل','جبر وهندسة فراغية','ميكانيكا','فيزياء','كيمياء','عربي','إنجليزي'],'أدبي':['تاريخ','جغرافيا','فلسفة ومنطق','علم نفس واجتماع','عربي','إنجليزي']};
+var TIPS=[
+[/رياضيات|تفاضل|تكامل|جبر|هندسة|ميكانيكا/,'الرياضيات 🧮\n• اكتبي القوانين في ورقة واحدة وراجعيها يومياً\n• لا تكتفي بقراءة الحل، حلّي بنفسكِ ثم قارني\n• خصصي دفتراً للأخطاء وأعيدي حلّها بعد ٣ أيام\n• حلّي نماذج السنوات السابقة بالوقت المحدد'],
+[/فيزياء/,'الفيزياء ⚡\n• افهمي الفكرة ثم القانون: من أين جاء ولماذا\n• اكتبي المعطيات والمطلوب بوضوح في كل مسألة\n• انتبهي لوحدات القياس فهي تضيّع درجات كثيرة\n• حلّي أنواعاً متعددة من المسائل بدل تكرار نوع واحد'],
+[/كيمياء/,'الكيمياء 🧪\n• اربطي التفاعلات العضوية بخريطة مفاهيم\n• احفظي المعادلات بالفهم: ماذا يتفاعل مع ماذا\n• حلّي مسائل الحسابات الكيميائية يومياً ولو مسألتين\n• اكتبي ملخصاً للاستثناءات فقط'],
+[/[اأ]حياء|[اأ]حياء|جيولوجيا/,'الأحياء 🧬\n• ارسمي المخططات وسمّي أجزاءها من الذاكرة\n• اسألي نفسكِ لماذا وكيف عن كل عملية\n• ركّزي على المصطلحات والتعريفات بدقة\n• حلّي أسئلة الاختيار من متعدد كثيراً'],
+[/عربي|نحو|بلاغة|[اأ]دب|نصوص|قراءة/,'اللغة العربية 📖\n• النحو: افهمي القاعدة بمثالين ثم أعربي يومياً\n• البلاغة: احفظي التعريف مع مثال لكل نوع\n• النصوص: لخّصي فكرة كل نص وأبرز صوره\n• اكتبي فقرة تعبير قصيرة كل يوم'],
+[/[اإ]نجليزي|[اإ]نجليزى|english/,'اللغة الإنجليزية 🌍\n• كلمات جديدة كل يوم في بطاقات صغيرة وراجعيها\n• اقرئي قطعة قصيرة يومياً وجاوبي أسئلتها\n• حلّي نماذج الامتحان بالوقت وراجعي قواعد أخطائكِ\n• اكتبي جملاً بنفسكِ بالقواعد الجديدة'],
+[/تاريخ|جغرافيا|فلسفة|علم نفس|اجتماع|منطق/,'المواد الأدبية 📚\n• حوّلي المنهج إلى أسئلة وأجوبة قصيرة\n• اصنعي خطوطاً زمنية وخرائط ذهنية\n• راجعي بالتسميع بصوت عالٍ دون النظر\n• ركّزي على المصطلحات ومفاتيح الإجابة']];
+function daysLeft(){var e=S.prof.exam;if(!e)return null;return Math.ceil((new Date(e+'T00:00:00')-new Date())/864e5)}
+function profTxt(){var P=S.prof,d=daysLeft(),o=' ملف صفا: ثالث ثانوي';if(P.track)o+='، شعبة '+P.track;if(d!==null)o+='، وباقي '+d+' يوماً على بداية الامتحانات';if(P.weak)o+='، والمواد الأضعف عندها: '+P.weak;return o+'.'}
+function needProf(){return 'عشان أرتّب لكِ خطة تناسبكِ، اختاري شعبتكِ وموعد الامتحانات من «🎓 ملفي الدراسي» فوق، أو اكتبيهما لي هنا 🌿'}
+function subs(){var P=S.prof,t=TRK[P.track]||[],w=splitSubs(ar2en(P.weak||''));return w.concat(t.filter(function(x){return w.indexOf(x)<0}))}
+function weekPlan(){if(!S.prof.track)return needProf();var L=subs(),n=L.length,D=['السبت','الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس'],o=[];
+ D.forEach(function(d,i){o.push('📅 '+d+': '+L[(2*i)%n]+' (ساعتان) + '+L[(2*i+1)%n]+' (ساعتان) + مراجعة سريعة: '+L[(2*i+n-1)%n]+' (٣٠ دقيقة)')});
+ o.push('📅 الجمعة: نموذج امتحان كامل بالوقت + مراجعة أخطائكِ + راحة وترفيه');
+ return 'خطة أسبوع مقترحة لشعبة '+S.prof.track+' 🌿\n'+o.join('\n')+'\nالمواد الأضعف جاءت في البداية لتأخذ وقتاً أكثر. عدّلي الساعات حسب ظروفكِ، ولو تبين يوم منها بالساعات اكتبي مثلاً: جدول 4 ساعات'}
+function smart(s){
+ if(/باقي|كام يوم|كم يوم|موعد الامتحان|متى الامتحان/.test(s)){var d=daysLeft();
+  if(d===null)return 'اكتبي موعد بداية الامتحانات في «🎓 ملفي الدراسي» وأحسب لكِ الأيام المتبقية وأضبط الخطة عليها 📅';
+  if(d<0)return 'الموعد الذي حدّدتِه مضى. حدّثيه من ملفكِ الدراسي 🌿';
+  var ph=d>60?'مرحلة إنهاء المنهج وفهمه جيداً، ابني أساساً قوياً دون استعجال':d>30?'مرحلة المراجعة الأولى مع حل أسئلة كثيرة بعد كل درس':d>7?'مرحلة نماذج الامتحانات بالوقت وتصحيح الأخطاء ومراجعة الملخصات':'مرحلة المراجعة السريعة والهدوء: ملخصاتكِ ودفتر أخطائكِ ونوم كافٍ';
+  return 'باقي '+d+' يوم '+(d>=14?'(حوالي '+Math.floor(d/7)+' أسابيع) ':'')+'⏳\nأنتِ الآن في '+ph+'.\nكل يوم تذاكرينه جيداً يُحسب لكِ 💪'}
+ for(var i=0;i<TIPS.length;i++)if(TIPS[i][0].test(s)&&/ذاكر|مذاكر|احفظ|افهم|طريقة|ازاي|إزاي|كيف|نصيح|صعب/.test(s))return TIPS[i][1]+'\nجرّبي هذا في جلسة المؤقت القادمة 💜';
+ if(/نوم|سهر|انام|أنام/.test(s))return 'النوم جزء من المذاكرة 😴\n• ٧ ساعات على الأقل، فالمعلومات تثبت في الذاكرة أثناء النوم\n• اجعلي آخر نصف ساعة قبل النوم بلا جوال\n• لا تسهري ليلة الامتحان، راجعي الملخصات ثم نامي\nوقت الراحة يحمي تركيزكِ غداً 💜';
+ if(/كسل|تسويف|مش قادر|مش عارف|مفيش مزاج/.test(s))return 'عادي جداً تحسين كده، وكلنا بنمر بيه 💜\nجرّبي قاعدة الخمس دقائق: ذاكري خمس دقائق فقط، وإن أردتِ التوقف بعدها توقفي بلا ذنب. غالباً ستكملين.\n• ابدئي بأسهل مادة أو أقصر درس\n• ضعي الجوال في غرفة أخرى\n• شغّلي مؤقت ٢٥ دقيقة وصوت مطر هادئ 🌧️\nجاهزة نبدأ الآن؟';
+ if(/ليلة الامتحان|بكرة امتحان|بكره امتحان|قبل الامتحان/.test(s))return 'خطة ليلة الامتحان 🌙\n• راجعي الملخصات وقوانينكِ وأخطائكِ فقط، ولا تبدئي شيئاً جديداً\n• جهّزي الأدوات والبطاقة والمياه قبل النوم\n• نامي مبكراً من ٦ إلى ٨ ساعات\n• في الصباح: فطور خفيف ومراجعة سريعة نصف ساعة\nأنتِ ذاكرتِ كثيراً، ثقي بنفسكِ 💪';
+ if(/نسيت|بنسى|بنسي|مش بحفظ|الحفظ/.test(s))return 'النسيان طبيعي، والحل في المراجعة المتباعدة 🧠\n• راجعي الدرس بعد يوم، ثم ٣ أيام، ثم أسبوع\n• سمّعي لنفسكِ بصوت عالٍ دون النظر\n• اكتبي أسئلة من الدرس وجاوبيها بعد ساعات\n• اشرحي الدرس لصديقة أو للجدار 😄';
+ if(/اهلي|أهلي|ماما|بابا|المجموع|تنسيق|كلية/.test(s))return 'ضغط السنة الأخيرة ثقيل، وأنتِ لستِ وحدكِ 💜\nمجموعكِ لا يحدد قيمتكِ، وجهدكِ اليومي الصادق هو ما تتحكمين فيه.\n• كلّمي أهلكِ بهدوء عن خطتكِ وما يريحكِ\n• قسّمي الهدف الكبير إلى أهداف أسبوعية صغيرة\n• لو الضغط يؤثر على نومكِ أو مزاجكِ، تحدثي مع شخص تثقين به أو مرشدة المدرسة';
+ if(/بابل|ورقة الامتحان|ورقه الامتحان|الوقت في الامتحان|حل الامتحان/.test(s))return 'تكتيكات الامتحان 📝\n• اقرئي الورقة كلها دقيقتين وابدئي بالأسهل\n• وزّعي الوقت على الأسئلة ولا تعلقي في سؤال واحد\n• في البابل شيت: ظلّلي بدقة وراجعي رقم السؤال\n• اتركي ١٠ دقائق للمراجعة النهائية\nتدرّبي عليها بنماذج بالوقت الحقيقي ⏱️';
+ return ''}
+function profInit(){var P=S.prof;$('#pTrk').value=P.track||'';$('#pEx').value=P.exam||'';$('#pWk').value=P.weak||'';
+ $('#pTrk').onchange=function(){P.track=this.value;save()};$('#pEx').onchange=function(){P.exam=this.value;save()};$('#pWk').oninput=function(){P.weak=this.value;save()}}
+var SYS='أنتِ «ركني الهادي»: مساعدة دافئة وهادئة داخل تطبيق مذاكرة لطالبة اسمها صفا. تكلمي بعربية بسيطة وودودة وبإيجاز (٣ إلى ٨ أسطر). ساعديها في ترتيب الوقت والتركيز والتحفيز والتخفيف من التوتر. عند طلب جدول اجعليه واقعياً بجلسات من ٢٥ إلى ٥٠ دقيقة واستراحات قصيرة، ولا تسألي أكثر من سؤال واحد قصير إن نقصت معلومة (المواد، عدد الساعات، وقت البدء). اكتبي كل بند من الجدول في سطر مستقل بهذه الصيغة بالضبط وبأرقام إنجليزية بنظام ٢٤ ساعة: HH:MM-HH:MM | العنوان، مثال: 16:00-16:45 | أحياء. لا تستخدمي جداول ماركداون ولا نجوماً ولا عناوين. أنتِ لستِ طبيبة، وللأمور الصحية أو النفسية الجادة شجعيها على التحدث مع شخص تثق به أو مختص.';
+function ar2en(s){return s.replace(/[٠-٩]/g,function(d){return '٠١٢٣٤٥٦٧٨٩'.indexOf(d)})}
+function hmm(t){t=((t%1440)+1440)%1440;return pad(Math.floor(t/60))+':'+pad(t%60)}
+var SRE=/(\d{1,2}):(\d{2})\s*[-–—]\s*(\d{1,2}):(\d{2})\s*\|\s*(.+)/;
+function parseSch(t){var o=[];t.split('\n').forEach(function(l){var m=l.match(SRE);if(m)o.push({h:+m[1],m:+m[2],t:m[5].trim()})});return o}
+function fmtMsg(t){return esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').split('\n').map(function(l){var m=l.match(SRE);
+ return m?'<div class="sl"><span dir="ltr">'+m[1]+':'+m[2]+'–'+m[3]+':'+m[4]+'</span> '+m[5]+'</div>':l+'<br>'}).join('')}
+function renderChat(){
+ var arr=S.chat.length?S.chat:[{r:'b',t:'أهلاً يا صفا 🌿 أنا «ركني الهادي».\nاكتبي لي أي شيء، أو اطلبي مني جدول مذاكرة وأرتّبه لكِ.'}];
+ $('#chat').innerHTML=arr.map(function(m,i){var sc=m.r==='b'&&m.t!=='…'&&parseSch(m.t).length>1;
+  return '<div class="msg '+m.r+'">'+fmtMsg(m.t)+(sc?'<button class="pill on" data-sch="'+i+'" style="margin-top:6px">➕ أضيفيه لمهامي مع منبهات</button>':'')+'</div>'}).join('');
+ $$('[data-sch]').forEach(function(b){b.onclick=function(){addSched(+b.dataset.sch)}});
+ if($('#nook').classList.contains('on'))window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})}
+function addMsg(r,t){S.chat.push({r:r,t:t});if(S.chat.length>40)S.chat.shift();save();renderChat()}
+function reply(t){busy=false;addMsg('b',t)}
+function addSched(i){var n=0;parseSch(S.chat[i].t).forEach(function(l){if(/استراحة/.test(l.t))return;
+ var d=new Date();d.setHours(l.h,l.m,0,0);var a=d.getTime()>Date.now()?d.getTime():0;
+ S.tasks.push({t:l.t+' ('+pad(l.h)+':'+pad(l.m)+')',c:'مذاكرة',d:false,a:a,f:0});n++});
+ if(n){audio();askNotif()}save();render();addMsg('b','أضفتُ '+n+' مهمة إلى قائمة المهام ✅ والمنبهات ستذكّركِ في مواعيدها ⏰')}
+function parseStart(s){var m=s.match(/(?:الساعة|الساعه)\s*(\d{1,2})(?::(\d{2}))?\s*(مساء|م|عصرا|عصراً|ص|صباحا|صباحاً|ليلا|ليلاً)?/);
+ if(m){var h=+m[1],mi=+(m[2]||0),a=m[3]||'';if(/^(مساء|م|عصرا|عصراً|ليلا|ليلاً)$/.test(a)&&h<12)h+=12;else if(!a&&h<7)h+=12;if(/^(ص|صباحا|صباحاً)$/.test(a)&&h===12)h=0;return h*60+mi}
+ var n=new Date();return Math.ceil((n.getHours()*60+n.getMinutes()+5)/30)*30}
+function splitSubs(s){return s.split(/[،,\n]| و /).map(function(x){return x.trim()}).filter(Boolean).slice(0,8)}
+function mkSched(subs,h,st){var total=h*60,t=st,i=0,L=[];
+ while(t-st+30<=total){var d=Math.min(45,st+total-t);L.push(hmm(t)+'-'+hmm(t+d)+' | '+subs[i%subs.length]);t+=d;i++;
+  if(t-st+25<total){var b=i%3===0?20:10;L.push(hmm(t)+'-'+hmm(t+b)+' | استراحة ☕');t+=b}}
+ return 'تفضلي جدولكِ يا صفا 🌿\n'+L.join('\n')+'\nجلسات ٤٥ دقيقة بينها استراحات قصيرة. اضغطي الزر لإضافته لمهامكِ مع منبهات 💜'}
+function localBot(q){var s=ar2en(q);
+ if(pend){var p=pend,sb=splitSubs(s);if(!sb.length)return 'اكتبي أسماء المواد وافصلي بينها بفاصلة، مثل: أحياء، كيمياء، إنجليزي 🌿';pend=null;return mkSched(sb,p.h,p.st)}
+ if(/اسبوع|أسبوع/.test(s)&&/جدول|خطة|نظمي|رتبي/.test(s))return weekPlan();
+ if(/جدول|نظمي|رتبي/.test(s)){
+  var h=+((s.match(/(\d+(?:\.\d+)?)\s*ساع/)||[])[1])||(/ساعتين|ساعتان/.test(s)?2:3),st=parseStart(s),m2=s.match(/:\s*([^\d].*)$/),sb2=m2?splitSubs(m2[1]):[];
+  if(sb2.length)return mkSched(sb2,h,st);
+  if(S.prof.track)return mkSched(subs(),h,st);pend={h:h,st:st};return 'يسعدني أرتّبه لكِ 🌿\nمدة المذاكرة '+h+' ساعات تقريباً. اكتبي لي المواد وافصلي بينها بفاصلة (مثل: أحياء، كيمياء، إنجليزي).'}
+ var sm=smart(s);if(sm)return sm;
+ if(/تعب|توتر|قلق|ضغط|زهق|ملل|خايف|خوف|متضايق|زعلان/.test(s))return 'أنا معكِ يا صفا 💜\nجرّبي هذا الآن: شهيق من الأنف أربع ثوانٍ، احبسيه أربعاً، ثم زفير بطيء ست ثوانٍ، وكرّريها ثلاث مرات 🌬️\nثم خذي خمس دقائق راحة واشربي ماءً. وإذا استمر الضيق، حدّثي شخصاً تثقين به، فهذا يساعد كثيراً.';
+ if(/تركيز|اركز|ركز|تشتت/.test(s))return 'نصائح للتركيز 🎯\n• أبعدي الجوال عن يدكِ أثناء الجلسة\n• اكتبي هدفاً واحداً لكل جلسة\n• ٢٥ إلى ٤٥ دقيقة ثم استراحة قصيرة\n• اشربي ماءً وجهّزي مكانكِ قبل البدء\nجرّبي مؤقت المذاكرة الآن 💪';
+ if(/شكر/.test(s))return 'العفو يا صفا 💜 أنا هنا متى احتجتِ.';
+ if(/مرحبا|اهلا|أهلا|هلا|السلام|صباح|مساء/.test(s))return 'أهلاً بكِ يا صفا 🌿 كيف حالكِ اليوم؟ تحبين أرتّب لكِ جدول مذاكرة؟';
+ if(/صعب|مش فاهم|مش فاهمة|معقد/.test(s))return 'المذاكرة بتبقى صعبة لما نبدأ بكل حاجة مرة واحدة 💜\nجرّبي: قسّمي المادة لدروس صغيرة، وذاكري درساً واحداً فقط في جلسة ٢٥ دقيقة، ثم سمّعي لنفسكِ ما فهمتِه. قولي لي أي مادة تحسينها صعبة وأرتّب لكِ خطة خطوة بخطوة 🌿';
+ if(/شات|مش شغال|مش بيرد|ما بيرد|مش بيشتغل|بايظ|عطل/.test(s))return 'آسفة لو الرد ما كان مناسب 🌿 أنا الآن في الوضع الأساسي (بدون الذكاء الكامل)، لكن أقدر أرتّب لكِ جدولاً أو أعطيكِ نصائح تركيز أو أهدّئكِ. جرّبي الأزرار تحت أو اكتبي: جدول 3 ساعات: أحياء، كيمياء';
+ if(/كيف حال|عامل|عاملة|ازيك|إزيك|اخبارك|أخبارك/.test(s))return 'أنا بخير يا صفا 🌿 وأنتِ؟ تحبين نرتّب مذاكرة اليوم؟';
+ var F=['أنا معكِ 🌿 تحبين أرتّب لكِ جدول مذاكرة؟ اكتبي مثلاً: جدول 3 ساعات: أحياء، كيمياء','ممكن توضحي لي أكثر؟ 🌿 أقدر أرتّب جدولاً، أعطيكِ نصائح تركيز، أو أهدّئكِ إذا كنتِ متوترة.','حاضرة 💜 قولي لي: عندكِ كام ساعة اليوم وما المواد؟ وأرتّبها لكِ.'];
+ fbI=(fbI+1)%F.length;return F[fbI]}
+function askAI(q){
+ var n=new Date(),open=S.tasks.filter(function(t){return !t.d}).map(function(t){return t.t}).join('، ')||'لا شيء',
+ ctx=SYS2+profTxt()+' الوقت الآن: '+n.toLocaleString('ar-EG')+' (الساعة '+pad(n.getHours())+':'+pad(n.getMinutes())+'). مهام صفا غير المنجزة: '+open+'. دقائق مذاكرتها اليوم: '+Math.floor(S.sec/60)+'.',
+ hist=S.chat.slice(-16).map(function(m){return{role:m.r==='u'?'user':'assistant',content:m.t}});
+ while(hist.length&&hist[0].role!=='user')hist.shift();
+ var tmp={r:'b',t:'…'};S.chat.push(tmp);renderChat();
+ SMP([{role:'user',content:ctx},{role:'assistant',content:'أهلاً صفا 🌿 أنا معكِ'}].concat(hist),{cache:false,modelTier:/جدول|خطة|اشرح|شرح|حل |مسألة|مسأله|معادلة|اثبت/.test(q)?'complex':'default',onText:function(x){tmp.t=x.text||'…';renderChat()}})
+ .then(function(r){tmp.t=(r&&r.text)||'…';busy=false;save();renderChat()})
+ .catch(function(e){S.chat.splice(S.chat.indexOf(tmp),1);
+  if(e&&e.code==='rate_limited'){reply('المساعدة مشغولة قليلاً، جرّبي بعد لحظات 🌿');return}
+  var c=(e&&e.code)||'unknown';if(c==='bad_key'&&SMP===keySampler){SMP=null;modeTxt();$('#cbMode').textContent='المفتاح غير صالح، تحققي منه في ⚙️ أسفل الشات'}
+  if(/^(not_granted|sampling_disabled|not_declared|capability_disabled|capability_removed)$/.test(c)){SMP=null;modeTxt()}
+  else if(c!=='bad_key')$('#cbMode').textContent='تعذّر الاتصال بالمساعدة الذكية الآن، أستخدم الوضع الأساسي (رمز: '+c+')';
+  reply(localBot(q))})}
+var KMODEL='claude-haiku-5-5';
+function getKey(){try{return localStorage.getItem('nook_key')||''}catch(e){return ''}}
+function keySampler(msgs,opts){
+ var sys=msgs[0].content,h=msgs.slice(2),m=[];
+ h.forEach(function(x){if(m.length&&m[m.length-1].role===x.role)m[m.length-1].content+='\n'+x.content;else m.push({role:x.role,content:x.content})});
+ while(m.length&&m[0].role!=='user')m.shift();
+ if(!m.length||m[m.length-1].role!=='user')return Promise.reject({code:'invalid_request'});
+ return fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':getKey(),'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:KMODEL,max_tokens:1000,system:sys,messages:m})})
+ .then(function(r){return r.json().then(function(j){
+  if(r.status===401||r.status===403)throw {code:'bad_key'};
+  if(r.status===429)throw {code:'rate_limited'};
+  if(!r.ok)throw {code:'http_'+r.status};
+  var t=(j.content||[]).map(function(c){return c.text||''}).join('').trim();
+  if(!t)throw {code:'empty_completion'};
+  return {text:t}})},function(){throw {code:'network'}})}
+function useKey(){if(getKey()){SMP=keySampler;modeTxt();return true}return false}
+function initAI(){
+ if(SMP)return Promise.resolve(SMP);
+ if(useKey())return Promise.resolve(SMP);
+ try{if(window.claude&&window.claude.use)return window.claude.use('sample').then(function(s){if(s){SMP=s;modeTxt()}return SMP}).catch(function(){return null})}catch(e){}
+ return Promise.resolve(null)}
+function send(q){if(busy)return;q=(q||$('#cIn').value).trim();if(!q)return;$('#cIn').value='';addMsg('u',q);busy=true;
+ initAI().then(function(){if(SMP)askAI(q);else setTimeout(function(){reply(localBot(q))},450)})}
+function modeTxt(){$('#cbMode').textContent=SMP?'مساعدة ذكية: اسأليني أي شيء ورتّبي وقتكِ معي':'وضع المساعد الأساسي (للردود الذكية أضيفي المفتاح من ⚙️ أسفل الشات): أرتّب لكِ جداول المذاكرة وأشجّعكِ'}
+$('#cSend').onclick=function(){send()};
+$('#cIn').onkeydown=function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}};
+$$('[data-q]').forEach(function(b){b.onclick=function(){send(b.dataset.q)}});
+$('#cClr').onclick=function(){S.chat=[];pend=null;busy=false;save();renderChat()};
+$('#kSave').onclick=function(){var v=$('#kIn').value.trim();if(!/^sk-ant-/.test(v)){$('#kMsg').textContent='المفتاح غير صحيح، يجب أن يبدأ بـ sk-ant';return}
+ try{localStorage.setItem('nook_key',v)}catch(e){$('#kMsg').textContent='تعذّر الحفظ على هذا الجهاز';return}
+ $('#kIn').value='';SMP=null;useKey();$('#kMsg').textContent='تم الحفظ ✅ جرّبي الشات الآن'};
+$('#kDel').onclick=function(){try{localStorage.removeItem('nook_key')}catch(e){}if(SMP===keySampler)SMP=null;modeTxt();$('#kMsg').textContent='تم حذف المفتاح'};
+initAI();
+modeTxt();
+$('#aAdd').onclick=function(){
+ audio();askNotif();var l=$('#aL').value.trim(),a;
+ if(amode==='clock'){var hm=$('#aT').value;if(!hm)return;a={k:'clock',l:l||'منبه',hm:hm,rep:$('#aR').checked,at:nextAt(hm),on:true}}
+ else{var s=(+$('#aH').value||0)*3600+(+$('#aM').value||0)*60+(+$('#aS').value||0);if(s<1)return;s=Math.min(s,86400);a={k:'cd',l:l||'مؤقت',dur:s,at:Date.now()+s*1000,on:true}}
+ S.alarms.push(a);save();renderAl();$('#aL').value=''};
+function ringClock(a,late){var n=S.snz||10;
+ alarm((a.k==='cd'?'⏳ انتهى المؤقت':'⏰ المنبه')+(late?' (فاتك)':''),a.l,[
+  {l:'إيقاف',fn:stopAlarm},
+  {l:'تأجيل '+n+' دقائق',fn:function(){a.at=Date.now()+n*60000;a.on=true;save();renderAl();stopAlarm()}}])}
+function checkClock(){if(alOpen)return;var now=Date.now();
+ for(var i=0;i<S.alarms.length;i++){var a=S.alarms[i];if(a.on&&a.at<=now){var late=now-a.at>120000;
+  if(a.k==='clock'&&a.rep)a.at=nextAt(a.hm);else a.on=false;
+  save();renderAl();ringClock(a,late);return}}}
+setInterval(function(){checkAlarms();checkClock();tickList()},1000);
+document.addEventListener('visibilitychange',function(){if(!document.hidden){if(run){wakeOn();tick()}checkAlarms()}});
+document.addEventListener('click',function(){audio()},{once:true});
+var SND=[
+{id:'rain',e:'🌧️',n:'صوت المطر الهادئ',d:'قطرات مطر دافئة على نافذة غرفة المذاكرة',mk:function(){var s=nz();chain(s,'bandpass',1800,1.1,.4);return function(){s.stop()}}},
+{id:'cafe',e:'☕',n:'مقهى المذاكرة الدافئ',d:'أجواء مكتبة ومقهى دراسي هادئ لعزل الضوضاء',mk:function(){var s=nz(),g=chain(s,'lowpass',520,.9),l=lfo(.15,.25,g.gain),t=setInterval(function(){blip(2200+Math.random()*1400,.05,.12)},2600);return function(){s.stop();l.stop();clearInterval(t)}}},
+{id:'clock',e:'🕰️',n:'تكتكة الساعة المنتظمة',d:'إيقاع رتيب يضبط وتيرة الإنجاز ويزيد التركيز',mk:function(){var n=0,t=setInterval(function(){blip(n++%2?1100:1500,.4,.05)},1000);return function(){clearInterval(t)}}},
+{id:'breeze',e:'🍃',n:'نسيم الليل والهدوء',d:'رياح لطيفة وهمسات ليلة تصفي الذهن',mk:function(){var s=nz(),g=chain(s,'lowpass',450,.8),l=lfo(.1,.4,g.gain);return function(){s.stop();l.stop()}}},
+{id:'white',e:'📻',n:'ضوضاء بيضاء نقية',d:'ترددات ناعمة تحجب الأصوات المزعجة تماماً',mk:function(){var s=nz();chain(s,'lowpass',14000,.45);return function(){s.stop()}}}];
+function drawSnd(){
+ $('#aCnt').textContent=Object.keys(act).length;
+ $('#sList').innerHTML=SND.map(function(s){var on=!!act[s.id];
+  return '<div class="card snd'+(on?' on':'')+'"><span class="ic">'+s.e+'</span><span class="tx"><b>'+s.n+'</b><small>'+s.d+'</small></span><button class="play" data-s="'+s.id+'" aria-label="'+(on?'إيقاف ':'تشغيل ')+s.n+'">'+(on?'⏸':'▶')+'</button></div>'}).join('');
+ $$('[data-s]').forEach(function(b){b.onclick=function(){
+  var id=b.dataset.s;if(act[id]){act[id]();delete act[id]}else{if(!audio())return;act[id]=SND.filter(function(x){return x.id===id})[0].mk()}drawSnd()}});
+}
+$('#vol').oninput=function(){if(master)master.gain.value=this.value/100};
+
+buildChips();draw();render();drawSnd();setAm('clock');renderAl();renderChat();profInit();
+(function(){var y0=0;
+ document.addEventListener('touchstart',function(e){y0=e.touches[0].clientY},{passive:true});
+ document.addEventListener('touchmove',function(e){var dy=e.touches[0].clientY-y0;if(dy>0&&(window.scrollY||document.documentElement.scrollTop)<=0&&e.cancelable)e.preventDefault()},{passive:false});
+ document.addEventListener('click',function(){var d=document.documentElement,f=d.requestFullscreen||d.webkitRequestFullscreen;if(!f||document.fullscreenElement)return;try{var p=f.call(d,{navigationUI:'hide'});if(p&&p.catch)p.catch(function(){})}catch(e){}},{once:true});
+ try{var m={name:'غرفة دراسة صفا',short_name:'غرفة صفا',display:'fullscreen',orientation:'portrait',dir:'rtl',lang:'ar',background_color:'#0d0a1f',theme_color:'#0d0a1f',start_url:location.href.split('#')[0]};
+ var l=document.createElement('link');l.rel='manifest';l.href=URL.createObjectURL(new Blob([JSON.stringify(m)],{type:'application/manifest+json'}));document.head.appendChild(l)}catch(e){}
+})();
+var sp=$('#splash'),spT=setTimeout(function(){sp.classList.add('out')},3600);sp.onclick=function(){clearTimeout(spT);sp.classList.add('out')};
+</script>
+</body>
+</html>
